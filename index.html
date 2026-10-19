@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi cậu!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ffeff2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 90%;
+        }
+        h2 {
+            color: #ff4d6d;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            position: relative;
+            height: 50px;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        #yesBtn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        #yesBtn:hover {
+            background-color: #ff758c;
+        }
+        #noBtn {
+            background-color: #ccc;
+            color: #333;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="content">
+        <h2 id="question">Cậu có yêu tớ không công nhận không? 💖</h2>
+        <div class="buttons">
+            <button id="yesBtn" onclick="sayYes()">Có chứ 🥰</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">Không bao giờ 😜</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const noBtn = document.getElementById("noBtn");
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth - 100);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight - 100);
+            noBtn.style.position = "fixed";
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+        }
+
+        function sayYes() {
+            document.getElementById("content").innerHTML = `
+                <h1 style="color: #ff4d6d;">Hihi, biết ngay mà! 🥰💕</h1>
+                <p>Yêu cậu nhiều lắm cơ ❤️</p>
+            `;
+        }
+    </script>
+</body>
+</html>
