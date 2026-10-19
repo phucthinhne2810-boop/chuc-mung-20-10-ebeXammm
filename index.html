@@ -5634,7 +5634,7 @@ body > .share-aircraft-stand.share-takeoff {isolation:isolate;}
 #tiny-shop-scene .shop-heading{position:absolute;z-index:8;left:24%;right:5%;top:11%;text-align:center;font-size:clamp(23px,3.1vw,44px);line-height:1.38;font-weight:700;letter-spacing:.012em;text-shadow:0 0 12px rgba(151,214,255,.47),0 0 31px rgba(140,158,251,.20);opacity:0;transform:translateY(18px);transition:opacity .9s ease .4s,transform 1s ease .4s;text-wrap:balance}
 #tiny-shop-scene.shop-visible .shop-heading{opacity:1;transform:translateY(0)}
 #tiny-shop-scene .shop-heading em{font-style:normal;color:#ffc3df;text-shadow:0 0 20px rgba(255,133,191,.42)}
-#tiny-shop-scene, #shop-tiny-host, .shop-heading, .shop-display, .shop-butterfly, div:has(> img[alt*="DA Labs"]), div:has(> a[href*="dalabs28"]), a[href*="dalabs28"], .dalabs, [class*="dalabs"] { display: none !important; opacity: 0 !important; pointer-events: none !important; }
+#tiny-shop-scene, #shop-tiny-host, .shop-heading, .shop-display, .shop-butterfly { display: none !important; opacity: 0 !important; pointer-events: none !important; }
   #shop-tiny-host{position:absolute;left:7%;top:19%;width:260px;height:190px;z-index:9;display:flex;align-items:center;justify-content:center;pointer-events:none;--shop-eye:76px}
 #shop-tiny-host #khung-mat{display:flex!important;position:relative!important;width:max-content!important;height:calc(var(--shop-eye) + 28px)!important;gap:22px!important;align-items:flex-start!important;justify-content:center!important;opacity:1!important;visibility:visible!important;transform:none;animation:none!important;transition:none!important;will-change:transform;isolation:isolate}
 #shop-tiny-host #khung-mat .truc-x{position:relative!important;width:var(--shop-eye)!important;height:calc(var(--shop-eye) + 30px)!important;flex:0 0 var(--shop-eye)!important;transform:translate(0,0) rotate(0deg)!important;transform-origin:50% 50%!important;animation:none!important;transition:transform .65s cubic-bezier(.2,.8,.2,1)!important;opacity:1!important;visibility:visible!important}
@@ -6761,14 +6761,14 @@ html.tiny-pc-beauty-v12 #uiverse-starfield #stars3 {
 
     <div id="text-1" class="text-layer hien-thi">Hi! Bé Xâm ơi</div>
     <div id="text-2" class="text-layer">Anh là Thịnh đây</div>
-    <div id="text-3" class="text-layer">Hôm nay anh mang đến cho em một chút bất ngờ nhỏ...</div>
+    <div id="text-3" class="text-layer">Hôm nay anh mang đến cho em một chút niềm vui...</div>
     <div id="text-4" class="text-layer">ui nàng thơ cụa anh đẹp quá</div>
     <div id="text-5" class="text-layer"><span class="chu-20-10">à thì cũng sắp </span><span class="chu-20-10">20/10 rồi</span></div>
     <div id="text-6" class="text-layer">nên là anh muốn</div>
-    <div id="text-7" class="text-layer">chúc em thật nhiều sức khỏe đầy năng lượng tích cực</div>
-    <div id="text-8" class="text-layer">chúc em luôn thật xinh đẹp</div>
+    <div id="text-7" class="text-layer">chúc em thật nhiều sức khỏe</div>
+    <div id="text-8" class="text-layer">chúc em thật xinh đẹp</div>
     <div id="text-9" class="text-layer">và chúc em luôn giữ<br>nụ cười trên môi</div>
-    <div id="text-10" class="text-layer">anh dành tặng em ngọn <span class="clover-word">cỏ 4 lá</span> này</div>
+    <div id="text-10" class="text-layer">anh tặng bé ngọn <span class="clover-word">cỏ 4 lá</span> này</div>
     <div id="text-11" class="text-layer">nè cầm lấy đi</div>
     <div id="text-12" class="text-layer">chúc bé gặp được thật nhiều điều <span class="luck-green-words">may mắn</span></div>
     <div id="text-13" class="text-layer">liệu em <span class="question-blue-words">có thể?</span></div>
@@ -6950,7 +6950,7 @@ html.tiny-pc-beauty-v12 #uiverse-starfield #stars3 {
     <!-- Scene after "Liệu cậu có thể?": animated fuel-button and departing aircraft. -->
     <section id="share-flight-scene" aria-hidden="true" aria-label="Lời nhờ chia sẻ trang web">
       <header class="share-flight-heading">
-        <h2 class="share-heading-crossfade"><span class="share-heading-original">Nhận lấy những lời ngọt ngào từ tận trái tim trao<br><span class="share-soft">đến em có được không?</span></span><span class="share-heading-thanks" aria-hidden="true">cảm ơn bé nhiều</span></h2>
+        <h2 class="share-heading-crossfade"><span class="share-heading-original">Nhận lấy những lời ngọt ngào từ tận trái tim<br><span class="share-soft">trao đến em có được không?</span></span><span class="share-heading-thanks" aria-hidden="true">cảm ơn bé nhiều</span></h2>
       </header>
       <!-- Đôi mắt THẬT của Tiny ở cảnh trước sẽ được chuyển vào đây, không tạo cặp mắt mới. -->
       <div id="share-tiny" class="share-tiny" aria-hidden="true"></div>
@@ -9826,7 +9826,8 @@ const SPRITES = [taoSprite(1.02, 140), taoSprite(.96, 136), taoSprite(1.08, 145)
             field.remove();
             return ok;
         }
-        async function copyShareUrl() {
+        async function copyShareUrl() { 
+          return false;
             if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
                 try { await navigator.clipboard.writeText(SHARE_FLIGHT_URL); return true; }
                 catch (_) { return fallbackCopyShareUrl(); }
